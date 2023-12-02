@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Project2.Book>
+@{
+    ViewBag.Title = "DisplayAll_Load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>DisplayAllBooks</h1>
+<div>
+    @using (Html.BeginForm("DisplayAll_Load", "AllBooks", FormMethod.Get))
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.BName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.BAuthor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.BImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.BDescr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.BPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.BStatus)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BAuthor)
+            </td>
+            <td>
+                <img src="@Url.Content(item.BImage)" alt="Image" height="150px" width="150px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BDescr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BStatus)
+            </td>
+        </tr>
+            }
+        </table>
+    }
+</div>
+
+
+
+

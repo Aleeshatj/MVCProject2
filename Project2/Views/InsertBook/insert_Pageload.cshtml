@@ -1,0 +1,59 @@
+﻿@model Project2.Models.InsertBook
+@{
+    ViewBag.Title = "insert_Pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Books</h2>
+<div>
+    @using (Html.BeginForm("insert_click", "InsertBook", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Book Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m =>m.BName)
+            @Html.ValidationMessageFor(m =>m.BName)
+        </div>
+        <div>
+            <label>Book Author:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.BAuthor)
+            @Html.ValidationMessageFor(m => m.BAuthor)
+        </div>
+        <div>
+            <label>Book Image:</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+        <div>
+            <label>Book Description:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m =>m.BDescr)
+            @Html.ValidationMessageFor(m =>m.BDescr)
+        </div>
+        <div>
+            <label>Book Price:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.BPrice)
+            @Html.ValidationMessageFor(m => m.BPrice)
+        </div>
+        <div>
+            <label>Book Status:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.BStatus)
+            @Html.ValidationMessageFor(m => m.BStatus)
+        </div>
+        <div>
+            <input type="submit" value="Insert" />
+            @Html.DisplayFor(m => m.Msg)
+        </div>
+    }
+</div>
+
+

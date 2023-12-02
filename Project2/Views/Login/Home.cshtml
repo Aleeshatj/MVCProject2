@@ -1,0 +1,13 @@
+﻿@model Project2.Models.Login
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home</h2>
+<div>
+    @Html.ActionLink("View Books", "DisplayAll_Load", "AllBooks")
+</div>
+<div>
+    @Html.ActionLink("Add Books", "insert_Pageload", "InsertBook")
+</div>
